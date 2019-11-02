@@ -1,6 +1,10 @@
 const express = require("express");
-
+const postsRouter = require("./PostsRouter.js");
 const server = express();
+
+server.use("/api/posts", postsRouter);
+
+server.use(express.json());
 
 server.get("/", (req, res) => {
   res.send(`
